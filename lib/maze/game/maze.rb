@@ -13,9 +13,9 @@ class Maze
     field_as_string = ''
     (@height + 2).times do |y|
       (@width + 2).times do |x|
-        field_as_string += map_field_element(fields[[x, y]])
+        field_as_string << map_field_element(fields[[x, y]])
       end
-      field_as_string += "\n"
+      field_as_string << "\n"
     end
     field_as_string
   end
