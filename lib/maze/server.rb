@@ -1,4 +1,4 @@
-require "maze/server/version"
+require_relative 'server/version'
 
 module Maze
   module Server
