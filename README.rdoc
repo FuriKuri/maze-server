@@ -1,7 +1,7 @@
 = \Maze Server
 
 * {<img src="https://secure.travis-ci.org/FuriKuri/maze-server.png"/>}[http://travis-ci.org/FuriKuri/maze-server]
-* {<img src="https://gemnasium.com/FuriKuri/maze-server?travis"/>}[https://gemnasium.com/FuriKuri/maze-server]
+* {<img src="https://gemnasium.com/FuriKuri/maze-server"/>}[https://gemnasium.com/FuriKuri/maze-server]
 * {<img src="https://codeclimate.com/badge.png" />}[https://codeclimate.com/github/FuriKuri/maze-server]
 
 == Installation
