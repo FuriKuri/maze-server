@@ -1,5 +1,5 @@
-require_relative '../../lib/maze/game/maze'
-require_relative '../../lib/maze/game/generator/maze_generator'
+require_relative '../../../lib/maze/game/maze'
+require_relative '../../../lib/maze/game/generator/maze_generator'
 
 describe Maze do
   before do

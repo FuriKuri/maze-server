@@ -1,4 +1,4 @@
-require_relative '../../../lib/maze/game/generator/maze_walker'
+require_relative '../../../../lib/maze/game/generator/maze_walker'
 
 describe MazeWalker do
   it 'creates a way in a maze' do

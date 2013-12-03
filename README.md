@@ -1,5 +1,7 @@
 # Maze::Server
 
+* {<img src="https://secure.travis-ci.org/FuriKuri/maze-server.png"/>}[http://travis-ci.org/FuriKuri/maze-server]
+
 TODO: Write a gem description
 
 ## Installation

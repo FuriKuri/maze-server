@@ -1,4 +1,4 @@
-require_relative '../../lib/maze/server/maze_server'
+require_relative '../../../lib/maze/server/maze_server'
 require 'socket'
 
 describe MazeServer do
