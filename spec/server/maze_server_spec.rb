@@ -9,6 +9,6 @@ describe MazeServer do
     TCPServer.stub(:open).with(9999).and_return(server)
     server = MazeServer.new(1)
     server.start
-    server.players[0].name.should == 'player'
+    server.players[1].name.should == 'player'
   end
 end
