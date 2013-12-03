@@ -1,0 +1,31 @@
+= \Maze Server
+
+* {<img src="https://secure.travis-ci.org/FuriKuri/share_your_books.png"/>}[http://travis-ci.org/FuriKuri/share_your_books]
+* {<img src="https://gemnasium.com/FuriKuri/share_your_books.png?travis"/>}[https://gemnasium.com/FuriKuri/share_your_books]
+* {<img src="https://codeclimate.com/badge.png" />}[https://codeclimate.com/github/FuriKuri/share_your_books]
+
+== Installation
+
+Add this line to your application's Gemfile:
+
+    $ gem 'maze-server'
+
+And then execute:
+
+    $ $ bundle
+
+Or install it yourself as:
+
+    $ $ gem install maze-server
+
+== Usage
+
+TODO: Write usage instructions here
+
+== Contributing
+
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create new Pull Request
