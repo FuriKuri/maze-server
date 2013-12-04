@@ -8,15 +8,15 @@
 
 Add this line to your application's Gemfile:
 
-    $ gem 'maze-server'
+    gem 'maze-server'
 
 And then execute:
 
-    $ $ bundle
+    $ bundle
 
 Or install it yourself as:
 
-    $ $ gem install maze-server
+    $ gem install maze-server
 
 == Usage
 
