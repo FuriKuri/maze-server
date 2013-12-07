@@ -43,18 +43,12 @@ class MazeGenerator
   def create_way(fields, start_position)
     fields[start_position] = :way
     MazeWalker.new(fields, start_position).create_maze_way
-    MazeWalker.new(fields, start_position, 4, 20).create_maze_way
-    MazeWalker.new(fields, start_position, 4, 20).create_maze_way
-    MazeWalker.new(fields, start_position, 4, 20).create_maze_way
-    MazeWalker.new(fields, start_position, 10, 20).create_maze_way
-    MazeWalker.new(fields, start_position, 10, 20).create_maze_way
-    MazeWalker.new(fields, start_position, 10, 20).create_maze_way
-    MazeWalker.new(fields, start_position, 10, 20).create_maze_way
-    MazeWalker.new(fields, start_position, 10, 20).create_maze_way
-    MazeWalker.new(fields, start_position, 10, 20).create_maze_way
-    MazeWalker.new(fields, start_position, 10, 20).create_maze_way
-    MazeWalker.new(fields, start_position, 10, 20).create_maze_way
-    MazeWalker.new(fields, start_position, 10, 20).create_maze_way
+    3.times do
+      MazeWalker.new(fields, start_position, 4, 20).create_maze_way
+    end
+    9.times do
+      MazeWalker.new(fields, start_position, 10, 20).create_maze_way
+    end
   end
 
   def init_field

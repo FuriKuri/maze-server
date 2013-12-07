@@ -41,23 +41,36 @@ class MazeWalker
     current_y = current_position[1]
     diff_x = (start_x - current_x).abs
     diff_y = (start_y - current_y).abs
-    if diff_x < @width / 2
-      (@width / 2).times do
-        if start_x == 1
-          current_x = current_x + 1
-        end
-        @fields[[current_x, current_y]] = :way
+    if start_x == 1
+      if diff_x < @width / 2
+        current_position = go_in_x_direction(current_position)
       end
     end
-    if diff_y < @height / 2
-      (@height / 2).times do
-        if start_y == 1
-          current_y = current_y + 1
-        end
-        @fields[[current_x, current_y]] = :way
+    if start_y == 1
+      if diff_y < @height / 2
+        current_position = go_in_y_direction(current_position)
       end
     end
-    current_position = [current_x, current_y]
     create_maze(current_position)
+  end
+
+  def go_in_x_direction(current_position)
+    current_x = current_position[0]
+    current_y = current_position[1]
+    (@width / 2).times do
+      current_x = current_x + 1
+      @fields[[current_x, current_y]] = :way
+    end
+    [current_x, current_y]
+  end
+
+  def go_in_y_direction(current_position)
+    current_x = current_position[0]
+    current_y = current_position[1]
+    (@height / 2).times do
+      current_y = current_y + 1
+      @fields[[current_x, current_y]] = :way
+    end
+    [current_x, current_y]
   end
 end
