@@ -1,11 +1,15 @@
 require_relative 'maze'
+require_relative 'maze_player'
 require 'set'
 
 class MazeGame
   def initialize(clients)
-    @players = clients
+    @players = Hash.new
     @maze = Maze.new(30, 30)
     start_position = rand_start_position
+    clients.each do |client|
+      @players[client] = MazePlayer.new(start_position, client.name)
+    end
   end
 
   private
