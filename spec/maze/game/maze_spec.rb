@@ -37,4 +37,26 @@ describe Maze do
       @maze.to_s.should == "****\n* x*\n*  *\n****\n"
     end
   end
+
+  context 'medium maze' do
+    before do
+      MazeGenerator.any_instance.stub(:create).and_return(
+          {[1, 1] => :wall,
+           [1, 2] => :wall,
+           [1, 3] => :wall,
+           [2, 1] => :way,
+           [2, 2] => :way,
+           [2, 3] => :way,
+           [3, 1] => :wall,
+           [3, 2] => :way,
+           [3, 3] => :wall
+          })
+      @maze = Maze.new(3, 3)
+    end
+
+    it 'show all directions for a way for aposition' do
+      @maze.directions_of_way_fields([2, 2]).should == [:top, :bottom, :right]
+      @maze.directions_of_way_fields([1, 2]).should == [:right]
+    end
+  end
 end

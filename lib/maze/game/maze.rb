@@ -9,6 +9,15 @@ class Maze
     @fields = MazeGenerator.new(width, height).create
   end
 
+  def directions_of_way_fields(position)
+    way_fields = []
+    way_fields << :top if @fields[[position[0], position[1] - 1]] == :way
+    way_fields << :bottom if @fields[[position[0], position[1] + 1]] == :way
+    way_fields << :left if @fields[[position[0] - 1, position[1]]] == :way
+    way_fields << :right if @fields[[position[0] + 1, position[1]]] == :way
+    way_fields
+  end
+
   def to_s
     field_as_string = ''
     (@height + 2).times do |y|
