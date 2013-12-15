@@ -54,9 +54,29 @@ describe Maze do
       @maze = Maze.new(3, 3)
     end
 
-    it 'show all directions for a way for aposition' do
+    it 'show all directions for a way' do
       @maze.directions_of_way_fields([2, 2]).should == [:top, :bottom, :right]
       @maze.directions_of_way_fields([1, 2]).should == [:right]
+    end
+  end
+
+  context 'small maze with exit' do
+    before do
+      MazeGenerator.any_instance.stub(:create).and_return(
+          {[1, 1] => :exit,
+           [1, 2] => :way,
+           [2, 1] => :wall,
+           [2, 2] => :way
+          })
+      @maze = Maze.new(2, 2)
+    end
+
+    it 'has on 1, 1 an exit' do
+      @maze.exit?([1, 1]).should be_true
+    end
+
+    it 'has on 2, 1 no exit' do
+      @maze.exit?([2, 1]).should be_false
     end
   end
 end

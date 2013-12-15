@@ -18,6 +18,10 @@ class Maze
     way_fields
   end
 
+  def exit?(position)
+    @fields[position] == :exit
+  end
+
   def to_s
     field_as_string = ''
     (@height + 2).times do |y|
