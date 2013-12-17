@@ -11,10 +11,10 @@ class Maze
 
   def directions_of_way_fields(position)
     way_fields = []
-    way_fields << :top if @fields[[position[0], position[1] - 1]] == :way
-    way_fields << :bottom if @fields[[position[0], position[1] + 1]] == :way
-    way_fields << :left if @fields[[position[0] - 1, position[1]]] == :way
-    way_fields << :right if @fields[[position[0] + 1, position[1]]] == :way
+    way_fields << :top if way_field? position, [0, -1]
+    way_fields << :bottom if way_field? position, [0, +1]
+    way_fields << :left if way_field? position, [-1, 0]
+    way_fields << :right if way_field? position, [+1, 0]
     way_fields
   end
 
@@ -34,6 +34,11 @@ class Maze
   end
 
   private
+  def way_field?(position, diff)
+    position = [position[0] + diff[0], position[1] + diff[1]]
+    @fields[position] == :way
+  end
+
   def map_field_element(element)
     case element
       when :wall
