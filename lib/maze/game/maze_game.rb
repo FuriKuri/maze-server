@@ -22,6 +22,13 @@ class MazeGame
     puts @maze.to_s
   end
 
+  def reached_player_exit?
+    @players.each do |_, player|
+      return true if @maze.exit?(player.current_position)
+    end
+    false
+  end
+
   private
   def rand_start_position
      @maze.fields.reject{|_, field_type| field_type != :way}.keys.sample

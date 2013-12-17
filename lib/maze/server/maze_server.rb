@@ -3,9 +3,9 @@ require 'rubygems'
 require 'json'
 require_relative '../../../lib/maze/game/maze_game'
 
-class MazeServer
-  Client = Struct.new(:name, :client)
+Client = Struct.new(:name, :client)
 
+class MazeServer
   def initialize(number_of_players = 2)
     @players = Hash.new
     @number_of_players = number_of_players
