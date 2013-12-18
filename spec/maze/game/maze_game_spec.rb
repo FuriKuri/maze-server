@@ -31,4 +31,9 @@ describe MazeGame do
     MazePlayer.any_instance.stub(:current_position).and_return([1, 2])
     @maze_game.reached_player_exit?.should be_false
   end
+
+  it 'can say which player has reached the exit' do
+    MazePlayer.any_instance.stub(:current_position).and_return([1, 1])
+    @maze_game.winning_players.should == ['Player']
+  end
 end

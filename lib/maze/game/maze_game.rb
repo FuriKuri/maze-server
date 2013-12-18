@@ -23,10 +23,15 @@ class MazeGame
   end
 
   def reached_player_exit?
+    !winning_players.empty?
+  end
+
+  def winning_players
+    winning_players = []
     @players.each do |_, player|
-      return true if @maze.exit?(player.current_position)
+      winning_players << player if @maze.exit?(player.current_position)
     end
-    false
+    winning_players.map { |player| player.name }
   end
 
   private
