@@ -55,20 +55,19 @@ class MazeWalker
   end
 
   def go_in_x_direction(current_position)
-    current_x = current_position[0]
-    current_y = current_position[1]
-    (@width / 2).times do
-      current_x = current_x + 1
-      @fields[[current_x, current_y]] = :way
-    end
-    [current_x, current_y]
+    go_in_direction(current_position, @width / 2, :x)
   end
 
   def go_in_y_direction(current_position)
+    go_in_direction(current_position, @height / 2, :y)
+  end
+
+  def go_in_direction(current_position, steps, direction)
     current_x = current_position[0]
     current_y = current_position[1]
-    (@height / 2).times do
-      current_y = current_y + 1
+    steps.times do
+      current_y = current_y + 1 if direction == :y
+      current_x = current_x + 1 if direction == :x
       @fields[[current_x, current_y]] = :way
     end
     [current_x, current_y]
