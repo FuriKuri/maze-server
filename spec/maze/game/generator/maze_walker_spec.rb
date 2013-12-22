@@ -18,8 +18,8 @@ describe MazeWalker do
     #MazeWalker.any_instance.stub(:rand).with(2..2).and_return([1, 0])
     Array.any_instance.stub(:sample).and_return([1, 0])
 
-    mazeWalker = MazeWalker.new(field, [1, 1], 2, 2)
-    mazeWalker.create_maze_way
+    maze_walker = MazeWalker.new(field, [1, 1], 2, 2)
+    maze_walker.create_maze_way
     field.should include(
         [1, 1] =>:way,
         [1, 2] => :wall,

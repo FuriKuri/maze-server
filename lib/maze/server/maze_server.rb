@@ -6,7 +6,7 @@ require_relative '../../../lib/maze/game/maze_game'
 Client = Struct.new(:name, :client)
 
 class MazeServer
-  def initialize(number_of_players = 2)
+  def initialize(number_of_players = 1)
     @players = Hash.new
     @number_of_players = number_of_players
   end
