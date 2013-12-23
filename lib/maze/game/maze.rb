@@ -22,29 +22,41 @@ class Maze
     @fields[position] == :exit
   end
 
+  def to_s_for_player(player_number = nil, player_position)
+    field_to_s(player_number, player_position)
+  end
+
   def to_s
+    field_to_s
+  end
+
+  private
+  def field_to_s(player_number = nil, player_position = nil)
     field_as_string = ''
     (@height + 2).times do |y|
       (@width + 2).times do |x|
-        field_as_string << map_field_element(fields[[x, y]])
+        field_as_string << map_field_element(fields[[x, y]], player_number, player_position)
       end
       field_as_string << "\n"
     end
     field_as_string
   end
 
-  private
   def way_field?(position, diff)
     position = [position[0] + diff[0], position[1] + diff[1]]
     @fields[position] == :way
   end
 
-  def map_field_element(element)
+  def map_field_element(element, player_number, player_position)
     case element
       when :wall
         'x'
       when :way
-        ' '
+        if player_position == element
+          player_number.to_s
+        else
+          ' '
+        end
       when :exit
         'O'
       else

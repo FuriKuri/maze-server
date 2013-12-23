@@ -36,6 +36,10 @@ describe Maze do
     it 'return the maze as string' do
       @maze.to_s.should == "****\n* x*\n*  *\n****\n"
     end
+
+    it 'return the maze with a player' do
+      @maze.to_s_for_player(1, [1, 1]) == "****\n*1x*\n*  *\n****\n"
+    end
   end
 
   context 'medium maze' do
