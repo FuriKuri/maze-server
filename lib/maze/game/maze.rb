@@ -35,7 +35,7 @@ class Maze
     field_as_string = ''
     (@height + 2).times do |y|
       (@width + 2).times do |x|
-        field_as_string << map_field_element(fields[[x, y]], player_number, player_position)
+        field_as_string << map_field_element([x, y], player_number, player_position)
       end
       field_as_string << "\n"
     end
@@ -47,12 +47,12 @@ class Maze
     @fields[position] == :way
   end
 
-  def map_field_element(element, player_number, player_position)
-    case element
+  def map_field_element(position, player_number, player_position)
+    case @fields[position]
       when :wall
         'x'
       when :way
-        if player_position == element
+        if player_position == position
           player_number.to_s
         else
           ' '
