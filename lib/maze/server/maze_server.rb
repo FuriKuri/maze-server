@@ -46,6 +46,9 @@ class MazeServer
       end
     end
     puts @maze_game.winning_players
+    @players.each do |player_number, client|
+      client.socket.puts('{"operation" : "WINNING_PLAYERS", "messageId" : 3, "type": "NOTIFICATION", "data" : ' + @maze_game.winning_players.to_s + '}')
+    end
   end
 end
 
