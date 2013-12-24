@@ -6,6 +6,19 @@ class MazePlayer
     @name = name
   end
 
+  def move(orientation)
+    case orientation
+      when :top
+        move_top
+      when :bottom
+        move_bottom
+      when :left
+        move_left
+      when :right
+        move_right
+    end
+  end
+
   def move_top
     do_move [0, -1]
   end
