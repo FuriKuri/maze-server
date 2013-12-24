@@ -36,4 +36,14 @@ describe MazeGame do
     MazePlayer.any_instance.stub(:current_position).and_return([1, 1])
     @maze_game.winning_players.should == ['Player']
   end
+
+  it 'move player in maze' do
+    MazePlayer.any_instance.should_receive(:move).with(:top)
+    @maze_game.move(@client, :top)
+  end
+
+  it 'returns maze for player' do
+    Maze.any_instance.stub(:to_s_for_player).and_return('maze')
+    @maze_game.maze(@client).should == 'maze'
+  end
 end

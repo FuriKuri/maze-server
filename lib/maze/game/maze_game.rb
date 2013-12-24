@@ -21,8 +21,8 @@ class MazeGame
     @players[client].move(orientation)
   end
 
-  def print_maze(client)
-    puts @maze.to_s_for_player(client.number, @players[client].current_position)
+  def maze(client)
+    @maze.to_s_for_player(client.number, @players[client].current_position)
   end
 
   def print_current_maze
@@ -46,8 +46,4 @@ class MazeGame
   def rand_start_position
      @maze.fields.reject{|_, field_type| field_type != :way}.keys.sample
   end
-end
-
-if __FILE__ == $0
-  MazeGame.new(nil)
 end

@@ -38,7 +38,7 @@ class MazeServer
     until @maze_game.reached_player_exit?
       @players.each do |player_number, client|
         puts "Print maze for player #{client.name}"
-        @maze_game.print_maze(client)
+        puts @maze_game.maze(client)
         next_moves = @maze_game.show_next_moves(client).map { |move| move.to_s }
         client.socket.puts('{"operation" : "NEXT_MOVE", "messageId" : 2, "type": "REQUEST", "data" : ' + next_moves.to_s + '}')
         move = JSON.parse(client.socket.gets.chop)['move'].to_sym
@@ -50,10 +50,4 @@ class MazeServer
       client.socket.puts('{"operation" : "WINNING_PLAYERS", "messageId" : 3, "type": "NOTIFICATION", "data" : ' + @maze_game.winning_players.to_s + '}')
     end
   end
-end
-
-if __FILE__ == $0
-  server = MazeServer.new
-  server.start
-  server.start_game
 end

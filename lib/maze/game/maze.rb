@@ -64,8 +64,3 @@ class Maze
     end
   end
 end
-
-if __FILE__ == $0
-  maze = Maze.new(30, 30)
-  puts maze.to_s
-end
