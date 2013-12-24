@@ -17,6 +17,10 @@ class MazeGame
     @maze.directions_of_way_fields player_position
   end
 
+  def move(client, orientation)
+    @players[client].move(orientation)
+  end
+
   def print_maze(client)
     puts @maze.to_s_for_player(client.number, @players[client].current_position)
   end

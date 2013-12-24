@@ -1,5 +1,9 @@
 #!/usr/bin/env ruby
 
 require 'maze/server/version'
+require 'maze/server/maze_server'
 
-puts Maze::Server::VERSION
+puts "Maze Version" + Maze::Server::VERSION
+server = MazeServer.new
+server.start
+server.start_game
