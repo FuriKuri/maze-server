@@ -1,4 +1,5 @@
 require_relative '../../../lib/maze/game/maze_player'
+require_relative '../../../spec/spec_helper'
 
 describe MazePlayer do
   before do

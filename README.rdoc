@@ -3,7 +3,7 @@
 {<img src="https://travis-ci.org/FuriKuri/maze-server.png?branch=master" alt="Build Status" />}[https://travis-ci.org/FuriKuri/maze-server]
 {<img src="https://gemnasium.com/FuriKuri/maze-server.png"/>}[https://gemnasium.com/FuriKuri/maze-server]
 {<img src="https://codeclimate.com/github/FuriKuri/maze-server.png" />}[https://codeclimate.com/github/FuriKuri/maze-server]
-
+{<img src="https://coveralls.io/repos/FuriKuri/maze-server/badge.png" alt="Coverage Status" />}[https://coveralls.io/r/FuriKuri/maze-server]
 == Installation
 
 Add this line to your application's Gemfile:

@@ -2,6 +2,7 @@ require_relative '../../../lib/maze/server/maze_server'
 require_relative '../../../lib/maze/server/version'
 require_relative '../../../lib/maze/game/maze_game'
 require 'socket'
+require_relative '../../../spec/spec_helper'
 
 describe MazeServer do
 

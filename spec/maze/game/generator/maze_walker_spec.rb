@@ -1,4 +1,5 @@
 require_relative '../../../../lib/maze/game/generator/maze_walker'
+require_relative '../../../../spec/spec_helper'
 
 describe MazeWalker do
   it 'creates a way in a maze' do

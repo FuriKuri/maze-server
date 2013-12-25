@@ -1,5 +1,6 @@
 require_relative '../../../../lib/maze/game/generator/maze_generator'
 require_relative '../../../../lib/maze/game/generator/maze_walker'
+require_relative '../../../../spec/spec_helper'
 
 describe MazeGenerator do
   it 'creates a empty maze' do
