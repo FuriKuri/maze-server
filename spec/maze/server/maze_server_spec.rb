@@ -13,7 +13,7 @@ describe MazeServer do
     response = double('response', :chop => '{"playerName" : "player"}')
     socket = double('socket', :gets => response, :puts => nil)
     server = double('server', :accept => socket)
-    TCPServer.stub(:open).with(9999).and_return(server)
+    TCPServer.stub(:open).with(1, 9999).and_return(server)
     server = MazeServer.new(1)
     server.start
     server.players[1].name.should == 'player'
@@ -24,7 +24,7 @@ describe MazeServer do
       response = double('response', :chop => '{"playerName" : "player"}')
       socket = double('socket', :gets => response, :puts => nil)
       server = double('server', :accept => socket)
-      TCPServer.stub(:open).with(9999).and_return(server)
+      TCPServer.stub(:open).with(1, 9999).and_return(server)
       @server = MazeServer.new(1)
       @server.start
     end
