@@ -1,6 +1,6 @@
 = \Maze Server
 {<img src="https://badge.fury.io/rb/maze-server.png" alt="Gem Version" />}[http://badge.fury.io/rb/maze-server]
-{<img src="https://drone.io/github.com/FuriKuri/maze-server/status.png"/>}[https://drone.io/github.com/FuriKuri/maze-server/latest]
+{<img src="https://travis-ci.org/FuriKuri/maze-server.png?branch=master" alt="Build Status" />}[https://travis-ci.org/FuriKuri/maze-server]
 {<img src="https://gemnasium.com/FuriKuri/maze-server.png"/>}[https://gemnasium.com/FuriKuri/maze-server]
 {<img src="https://codeclimate.com/github/FuriKuri/maze-server.png" />}[https://codeclimate.com/github/FuriKuri/maze-server]
 
