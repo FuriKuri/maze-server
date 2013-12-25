@@ -2,8 +2,30 @@
 
 require 'maze/server/version'
 require 'maze/server/maze_server'
+require 'optparse'
 
-puts "Maze Version" + Maze::Server::VERSION
-server = MazeServer.new
+options = {
+  :port => 9999,
+  :hostname => 'localhost',
+  :player => 1
+}
+
+option_parser = OptionParser.new do |opts|
+  opts.on("-p PORT") do |port|
+    options[:port] = port.to_i
+  end
+
+  opts.on("-h HOSTNAME") do |hostname|
+    options[:hostname] = hostname
+  end
+
+  opts.on("-n PLAYER") do |player|
+    options[:player] = player.to_i
+  end
+end
+
+option_parser.parse!
+
+server = MazeServer.new(options[:hostname], options[:port], options[:player])
 server.start
 server.start_game

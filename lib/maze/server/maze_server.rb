@@ -6,15 +6,17 @@ require_relative '../../../lib/maze/game/maze_game'
 Client = Struct.new(:name, :socket, :number)
 
 class MazeServer
-  def initialize(number_of_players = 1)
+  def initialize(hostname = 'localhost', port = 9999, number_of_players = 1)
+    @hostname = hostname
+    @port = port
     @players = Hash.new
     @number_of_players = number_of_players
   end
 
   def start
-    puts 'start server'
+    puts "start server on port #{@port} with hostname #{@hostname}"
     connected_player = 0
-    server = TCPServer.open(9999)
+    server = TCPServer.open(@hostname, @port)
     while connected_player < @number_of_players
       connected_player += 1
       puts 'wait for player'
