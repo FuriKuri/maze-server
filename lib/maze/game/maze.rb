@@ -9,12 +9,12 @@ class Maze
     @fields = MazeGenerator.new(width, height).create
   end
 
-  def directions_of_way_fields(position)
+  def possible_directions(position)
     way_fields = []
-    way_fields << :top if way_field? position, [0, -1]
-    way_fields << :bottom if way_field? position, [0, +1]
-    way_fields << :left if way_field? position, [-1, 0]
-    way_fields << :right if way_field? position, [+1, 0]
+    way_fields << :top if way_or_exit_field? position, [0, -1]
+    way_fields << :bottom if way_or_exit_field? position, [0, +1]
+    way_fields << :left if way_or_exit_field? position, [-1, 0]
+    way_fields << :right if way_or_exit_field? position, [+1, 0]
     way_fields
   end
 
@@ -42,9 +42,9 @@ class Maze
     field_as_string
   end
 
-  def way_field?(position, diff)
+  def way_or_exit_field?(position, diff)
     position = [position[0] + diff[0], position[1] + diff[1]]
-    @fields[position] == :way
+    @fields[position] == :way || @fields[position] == :exit
   end
 
   def map_field_element(position, player_number, player_position)

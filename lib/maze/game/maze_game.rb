@@ -14,7 +14,7 @@ class MazeGame
 
   def show_next_moves(client)
     player_position = @players[client].current_position
-    @maze.directions_of_way_fields player_position
+    @maze.possible_directions player_position
   end
 
   def move(client, orientation)

@@ -52,15 +52,15 @@ describe Maze do
            [2, 2] => :way,
            [2, 3] => :way,
            [3, 1] => :wall,
-           [3, 2] => :way,
+           [3, 2] => :exit,
            [3, 3] => :wall
           })
       @maze = Maze.new(3, 3)
     end
 
     it 'show all directions for a way' do
-      @maze.directions_of_way_fields([2, 2]).should == [:top, :bottom, :right]
-      @maze.directions_of_way_fields([1, 2]).should == [:right]
+      @maze.possible_directions([2, 2]).should == [:top, :bottom, :right]
+      @maze.possible_directions([1, 2]).should == [:right]
     end
   end
 
