@@ -21,6 +21,14 @@ class MazeGame
     @players[client].move(orientation)
   end
 
+  def moves
+    player_moves = {}
+    @players.each do |client, player|
+      player_moves[client.name] = player.moves
+    end
+    player_moves
+  end
+
   def maze(client)
     @maze.to_s_for_player(client.number, @players[client].current_position)
   end

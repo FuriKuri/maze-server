@@ -47,4 +47,9 @@ describe MazeGame do
     Maze.any_instance.stub(:to_s_for_player).and_return('maze')
     @maze_game.maze(@client).should == 'maze'
   end
+
+  it 'returns the moves for each player' do
+    MazePlayer.any_instance.stub(:moves).and_return(3)
+    @maze_game.moves.should include('Player' => 3)
+  end
 end

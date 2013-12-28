@@ -1,9 +1,10 @@
 class MazePlayer
-  attr_reader :current_position, :name
+  attr_reader :current_position, :name, :moves
 
   def initialize(current_position, name)
     @current_position = current_position
     @name = name
+    @moves = 0
   end
 
   def move(orientation)
@@ -39,5 +40,6 @@ class MazePlayer
   def do_move(diff)
     @current_position = [@current_position[0] + diff[0],
                          @current_position[1] + diff[1]]
+    @moves += 1
   end
 end

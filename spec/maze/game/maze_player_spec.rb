@@ -53,4 +53,11 @@ describe MazePlayer do
     @player.move(:right)
     @player.current_position.should == [6, 5]
   end
+
+  it 'count the moves' do
+    @player.move(:right)
+    @player.move(:right)
+    @player.move(:right)
+    @player.moves.should == 3
+  end
 end
