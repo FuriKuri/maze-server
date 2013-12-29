@@ -37,28 +37,30 @@ class MazeServer
   end
 
   def start_game
-    until @maze_game.reached_player_exit?
+    until @maze_game.all_players_reached_exit?
       do_moves
     end
-    puts @maze_game.winning_players
+    puts @maze_game.moves
     confirm_clients
   end
 
   private
   def do_moves
     @players.each do |player_number, client|
-      puts "Print maze for player #{client.name}"
-      puts @maze_game.maze(client)
-      next_moves = @maze_game.show_next_moves(client).map { |move| move.to_s }
-      client.socket.puts('{"operation" : "NEXT_MOVE", "messageId" : 2, "type": "REQUEST", "data" : ' + next_moves.to_s + '}')
-      move = JSON.parse(client.socket.gets.chop)['move'].to_sym
-      @maze_game.move(client, move)
+      unless @maze_game.player_reached_exit?(client)
+        puts "Print maze for player #{client.name}"
+        puts @maze_game.maze(client)
+        next_moves = @maze_game.show_next_moves(client).map { |move| move.to_s }
+        client.socket.puts('{"operation" : "NEXT_MOVE", "messageId" : 2, "type": "REQUEST", "data" : ' + next_moves.to_s + '}')
+        move = JSON.parse(client.socket.gets.chop)['move'].to_sym
+        @maze_game.move(client, move)
+      end
     end
   end
 
   def confirm_clients
     @players.each do |player_number, client|
-      client.socket.puts('{"operation" : "WINNING_PLAYERS", "messageId" : 3, "type": "NOTIFICATION", "data" : ' + @maze_game.winning_players.to_s + '}')
+      client.socket.puts('{"operation" : "WINNING_PLAYERS", "messageId" : 3, "type": "NOTIFICATION", "data" : ' + @maze_game.moves.to_s + '}')
       client_msg = client.socket.gets.chop
       puts "#{client.name} send message #{client_msg}"
     end

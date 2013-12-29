@@ -38,6 +38,14 @@ class MazeGame
     puts @maze.to_s
   end
 
+  def player_reached_exit?(client)
+    @maze.exit?(@players[client].current_position)
+  end
+
+  def all_players_reached_exit?
+    @players.reject{|client, _| player_reached_exit? client }.empty?
+  end
+
   def reached_player_exit?
     !winning_players.empty?
   end

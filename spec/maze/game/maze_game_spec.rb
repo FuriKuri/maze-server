@@ -52,4 +52,24 @@ describe MazeGame do
     MazePlayer.any_instance.stub(:moves).and_return(3)
     @maze_game.moves.should include('Player' => 3)
   end
+
+  it 'can say if player reached exit' do
+    MazePlayer.any_instance.stub(:current_position).and_return([1, 1])
+    @maze_game.reached_player_exit?.should be_true
+  end
+
+  it 'can say if player is still in maze' do
+    MazePlayer.any_instance.stub(:current_position).and_return([1, 2])
+    @maze_game.reached_player_exit?.should be_false
+  end
+
+  it 'can say if all players reached exit' do
+    MazePlayer.any_instance.stub(:current_position).and_return([1, 1])
+    @maze_game.all_players_reached_exit?.should be_true
+  end
+
+  it 'can say if not all players reached exit' do
+    MazePlayer.any_instance.stub(:current_position).and_return([1, 2])
+    @maze_game.all_players_reached_exit?.should be_false
+  end
 end

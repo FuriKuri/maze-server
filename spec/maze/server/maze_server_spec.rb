@@ -31,7 +31,7 @@ describe MazeServer do
     end
 
     it 'handle a game' do
-      MazeGame.any_instance.stub(:reached_player_exit?).and_return(false, true)
+      MazeGame.any_instance.stub(:all_players_reached_exit?).and_return(false, true)
       response = double('response', :chop => '{"move" : "left"}')
       socket = double('socket', :gets => response, :puts => nil)
       Client.any_instance.stub(:socket).and_return(socket)
