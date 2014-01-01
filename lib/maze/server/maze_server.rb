@@ -60,7 +60,7 @@ class MazeServer
 
   def confirm_clients
     @players.each do |player_number, client|
-      client.socket.puts('{"operation" : "WINNING_PLAYERS", "messageId" : 3, "type": "NOTIFICATION", "data" : ' + @maze_game.moves.to_s + '}')
+      client.socket.puts('{"operation" : "PLAYER_MOVES", "messageId" : 3, "type": "NOTIFICATION", "data" : ' + @maze_game.moves.to_json + '}')
       client_msg = client.socket.gets.chop
       puts "#{client.name} send message #{client_msg}"
     end
